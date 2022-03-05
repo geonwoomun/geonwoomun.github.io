@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import GlobalStyle from 'components/Common/GlobalStyle';
+import Template from 'components/Common/Template';
 import Introduction from 'components/Main/Introduction';
-import Footer from 'components/Common/Footer';
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList';
 import PostList from 'components/Main/PostList';
 import { PostListItemType } from 'types/PostItem.types';
@@ -26,12 +24,6 @@ type IndexPageProps = {
     };
   };
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
 
 const IndexPage = ({
   location: { search },
@@ -76,16 +68,14 @@ const IndexPage = ({
   }, []);
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   );
 };
 
