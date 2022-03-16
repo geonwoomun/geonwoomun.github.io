@@ -51,6 +51,10 @@ const Template = ({
           name="google-site-verification"
           content="cMueHr3Bax96rzPIt5dmWqygb4s8sxbUmoSiSvYFIlA"
         />
+        <meta
+          name="naver-site-verification"
+          content="d4eaeef366c3ce8ffbde2ed676ae0436afdef2f2"
+        />
 
         <html lang="ko" />
       </Helmet>
