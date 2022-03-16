@@ -3,7 +3,7 @@ module.exports = {
     title: `즐거운 프론트 개발자`,
     description: `프론트는 내겐 전부였어~`,
     author: `geonwoo mun`,
-    siteUrl: 'https://test.com',
+    siteUrl: 'https://geonwoomun.github.io/',
   },
   plugins: [
     {
@@ -79,7 +79,7 @@ module.exports = {
           {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
-              siteUrl: 'https://test.com',
+              siteUrl: 'https://geonwoomun.github.io/',
               stripQueryString: true,
             },
           },
