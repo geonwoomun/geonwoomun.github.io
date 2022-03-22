@@ -37,11 +37,11 @@ export default PostItem;
 
 const PostItemWrapper = styled(Link)`
   display: flex;
-  flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
   cursor: pointer;
+  margin-bottom: 20px;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -49,9 +49,8 @@ const PostItemWrapper = styled(Link)`
 `;
 
 const ThumbnailImage = styled(GatsbyImage)`
-  width: 100%;
-  height: 200px;
-  border-radius: 10px 10px 0 0;
+  width: 300px;
+  border-radius: 10px;
 `;
 
 const PostItemContent = styled.div`

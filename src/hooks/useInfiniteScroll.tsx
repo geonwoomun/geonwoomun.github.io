@@ -11,10 +11,17 @@ export type useInfiniteScrollType = {
 
 const NUMBER_OF_ITEMS_PER_PAGE = 10;
 
-const useInfiniteScroll = (
-  selectedCategory: string,
-  posts: PostListItemType[],
-) => {
+type UseInfiniteScroll = {
+  posts: PostListItemType[];
+  selectedCategory: string;
+  searchWord: string;
+};
+
+const useInfiniteScroll = ({
+  selectedCategory,
+  posts,
+  searchWord,
+}: UseInfiniteScroll) => {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null);
   const observer: MutableRefObject<IntersectionObserver | null> =
@@ -22,18 +29,39 @@ const useInfiniteScroll = (
   const [count, setCount] = useState<number>(1);
 
   const postListByCategory = useMemo(() => {
+    const lowerSearch = searchWord.toLowerCase();
+
     if (selectedCategory === 'All') {
-      return posts;
+      if (!searchWord) {
+        return posts;
+      }
+
+      return posts.filter(
+        ({
+          node: {
+            frontmatter: { title },
+          },
+        }) => title.toLowerCase().includes(lowerSearch),
+      );
     }
 
     return posts.filter(
       ({
         node: {
-          frontmatter: { categories },
+          frontmatter: { categories, title },
         },
-      }) => categories.includes(selectedCategory),
+      }) => {
+        if (searchWord) {
+          return (
+            title.toLowerCase().includes(lowerSearch) &&
+            categories.includes(selectedCategory)
+          );
+        }
+
+        return categories.includes(selectedCategory);
+      },
     );
-  }, [selectedCategory, posts]);
+  }, [selectedCategory, searchWord, posts]);
 
   useEffect(() => {
     observer.current = new IntersectionObserver((entries, observer) => {

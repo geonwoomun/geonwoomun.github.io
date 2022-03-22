@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import { createURL } from 'utils/createURL';
 
 export type CategoryListProps = {
   selectedCategory: string;
@@ -27,7 +28,12 @@ const CategoryList = ({
     <CategoryListWrapper>
       {Object.entries(categoryList).map(([name, count]) => (
         <CategoryItem
-          to={`/?category=${name}`}
+          to={createURL({
+            nowPath: '/',
+            params: {
+              category: name,
+            },
+          })}
           active={name === selectedCategory}
           key={name}
         >
@@ -44,7 +50,7 @@ const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 768px;
-  margin: 100px auto 0;
+  margin: 60px auto 0;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -60,7 +66,13 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   padding: 5px 0;
   font-size: 18px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
+  color: ${({ active }) => (active ? 'black' : 'grey')};
   cursor: pointer;
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    color: black;
+  }
 
   &:list-of-type {
     margin-right: 0;

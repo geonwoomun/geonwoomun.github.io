@@ -5,12 +5,17 @@ import { PostListItemType } from 'types/PostItem.types';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 type PostListProps = {
-  selectedCategory: string;
   posts: PostListItemType[];
+  searchWord: string;
+  selectedCategory: string;
 };
 
-const PostList = ({ selectedCategory, posts }: PostListProps) => {
-  const { containerRef, postList } = useInfiniteScroll(selectedCategory, posts);
+const PostList = ({ posts, selectedCategory, searchWord }: PostListProps) => {
+  const { containerRef, postList } = useInfiniteScroll({
+    posts,
+    selectedCategory,
+    searchWord,
+  });
 
   return (
     <PostListWrapper ref={containerRef}>
@@ -32,15 +37,11 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
 export default PostList;
 
 const PostListWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
   width: 768px;
   margin: 0 auto;
   padding: 50px 0 100px;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
     width: 100%;
     padding: 50px 20px;
   }

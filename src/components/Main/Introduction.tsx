@@ -5,22 +5,21 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(60deg, #0f0f0f 0%, #505050 100%);
   color: #fff;
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   width: 768px;
-  height: 400px;
+  height: 300px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 300px;
+    height: 200px;
     padding: 0 20px;
   }
 `;
