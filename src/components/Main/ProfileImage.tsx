@@ -6,6 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const ProfileImageWrapper = styled(GatsbyImage)`
   width: 140px;
   height: 140px;
+  margin-right: 10px;
   margin-bottom: 30px;
   border-radius: 50%;
   object-fit: cover;
@@ -13,7 +14,9 @@ const ProfileImageWrapper = styled(GatsbyImage)`
 
   @media (max-width: 768px) {
     width: 80px;
+    min-width: 80px;
     height: 80px;
+    margin-top: 40px;
   }
 `;
 

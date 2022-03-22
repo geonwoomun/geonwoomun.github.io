@@ -51,6 +51,10 @@ const PostItemWrapper = styled(Link)`
 const ThumbnailImage = styled(GatsbyImage)`
   width: 300px;
   border-radius: 10px;
+
+  @media (max-width: 599px) {
+    width: 180px;
+  }
 `;
 
 const PostItemContent = styled.div`
