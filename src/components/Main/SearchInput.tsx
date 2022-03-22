@@ -34,7 +34,7 @@ const SearchInput = ({ searchWord }: SearchInputProps) => {
     if (inputRef.current) {
       inputRef.current.value = searchWord || '';
     }
-  }, [inputRef.current]);
+  }, [inputRef.current, searchWord]);
 
   return (
     <SearchInputContainer>
@@ -64,7 +64,7 @@ const SearchInputContainer = styled.section`
   }
 
   & input {
-    width: 300px;
+    width: 400px;
     height: 36px;
     padding: 0px 10px;
     border-right: none;
@@ -72,6 +72,10 @@ const SearchInputContainer = styled.section`
 
     &:focus {
       outline: none;
+    }
+
+    @media (max-width: 599px) {
+      width: 250px;
     }
   }
 
