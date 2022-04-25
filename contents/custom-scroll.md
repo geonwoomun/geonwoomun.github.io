@@ -15,8 +15,6 @@ thumbnail: './assets/custom-scroll.png'
 
 간단한 실습을 위해 만든 html은 아래와 같다.
 
-html
-
 ```html
 <div class="content-container">
   <div class="content-wrapper">
@@ -29,10 +27,7 @@ html
   </div>
 </div>
 ```
-
 ### css 속성 살펴보기
-
-css
 
 ```css
 * {
@@ -122,8 +117,6 @@ https://caniuse.com/?search=overlay 에 의하면 safari에서는 overlay 를 �
 Wrapper에는 혹시나 모를 container의 색을 대비해서 background-color 값을 주었고 하위의 글자 색이 container background-clip에 영향 받지 않도록, color 값을 주었다.
 
 ### js 살펴보기
-
-js
 
 ```js
 const containerElement = document.querySelector('.content-container');

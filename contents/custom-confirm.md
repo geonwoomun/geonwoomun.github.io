@@ -130,4 +130,7 @@ beforeRouteHandler의 callback 함수는 async 일 경우 제대로 동작하지
 `changeRouteAfterConfirm` 함수 안에서 confirm으로 확인 여부를 물은 후, true 일경우에 가고자 했던 곳으로 router.push를 한다. `routeValidateCheck.current = true` 를 하는 이유는
 하지 않을 경우 `router.push` 에서 또 걸려서 무한 반복하게 되기 때문이다.
 
+<br/>
+
+
 이렇게 해서 route가 변화하는 것을 막고, 유저가 확인을 눌렀을 경우 제대로 route하고, 취소일 경우에는 그대로 유지할 수 있게 하였다.
